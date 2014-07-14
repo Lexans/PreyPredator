@@ -44,6 +44,7 @@ namespace PreyPredator
         private void timerMain_Tick(object sender, EventArgs e)
         {
             environment.RunSimulation();
+            labelIteration.Text = environment.timer.ToString();
         }
     }
 }

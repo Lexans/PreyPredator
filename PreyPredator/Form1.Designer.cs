@@ -42,6 +42,8 @@
             this.buttonPause = new System.Windows.Forms.Button();
             this.trackBarSpeed = new System.Windows.Forms.TrackBar();
             this.timerMain = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelIteration = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGrass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPreys)).BeginInit();
@@ -186,11 +188,31 @@
             // 
             this.timerMain.Tick += new System.EventHandler(this.timerMain_Tick);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(534, 478);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 17);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Итерация:";
+            // 
+            // labelIteration
+            // 
+            this.labelIteration.AutoSize = true;
+            this.labelIteration.Location = new System.Drawing.Point(617, 478);
+            this.labelIteration.Name = "labelIteration";
+            this.labelIteration.Size = new System.Drawing.Size(16, 17);
+            this.labelIteration.TabIndex = 4;
+            this.labelIteration.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 550);
+            this.Controls.Add(this.labelIteration);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -205,6 +227,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSpeed)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -223,6 +246,8 @@
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.TrackBar trackBarSpeed;
         private System.Windows.Forms.Timer timerMain;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelIteration;
     }
 }
 

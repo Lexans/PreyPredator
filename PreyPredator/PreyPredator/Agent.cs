@@ -62,13 +62,13 @@ namespace PreyPreadtor
             if (((x + dx) < environment.width) && ((x + dx) >= 0))
             {
                 x += dx;
-                satiety -= 3;
+                satiety -= 2;
             }
 
             if (((y + dy) < environment.height) && ((y + dy) >= 0))
             {
                 y += dy;
-                satiety-=3;
+                satiety-=2;
             }
 
 		}
@@ -78,7 +78,7 @@ namespace PreyPreadtor
 		/// </summary>
 		protected void Eat(Agent Target)
 		{
-            satiety += (Target.satiety - (int)(Target.satiety*0.2)); //переход сытости
+            satiety += Target.satiety; //переход сытости
 
             if (Target is Grass)
                 Target.satiety = 0; //трава съедается но не уничтожается

@@ -20,7 +20,7 @@ namespace PreyPreadtor
         /// <summary>
         /// новорожденный хищник
         /// </summary>
-        const int satietyBorn = 40;
+        const int satietyBorn = 90;
         
         /// <summary>
         /// радиус зрения
@@ -30,28 +30,28 @@ namespace PreyPreadtor
         /// <summary>
         /// время жизни
         /// </summary>
-        const int maxAge = 200;
+        const int maxAge = 30;
 
         /// <summary>
         /// возраст размножения
         /// </summary>
-        const int bornAge = 100;
+        const int bornAge = 7;
 
         /// <summary>
         /// затраты на рождение
         /// </summary>
-        const int bornExpense = 40;
+        const int bornExpense = 20;
 
         /// <summary>
         /// порог голода для охоты
         /// </summary>
-        const int hunterBound = 90;
+        const int hunterBound = 95;
 
 
         /// <summary>
         /// порог голода для размножения (должен меньше чем охота)
         /// </summary>
-        const int bornBound = 70;
+        const int bornBound = 50;
 
 
         public Predator(Environment environment)
@@ -84,7 +84,7 @@ namespace PreyPreadtor
                 }
 
                 //размножение
-                if (satiety > bornBound && age > bornAge)
+                if (satiety > bornBound && age > bornAge && (age % 15) == 0)
                 {
                     var ag = new Predator(environment);
                     ag.x = x;

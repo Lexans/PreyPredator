@@ -21,7 +21,7 @@ namespace PreyPreadtor
         const int speedGrow = 5;
 
         //новорожденная трава
-        const int satietyBorn = 15;
+        const int satietyBorn = 30;
 
         public Grass(Environment environment)
             : base(environment, satietyBorn, Color.Green)
@@ -32,7 +32,7 @@ namespace PreyPreadtor
         {
             //рост травы
             if ((environment.timer % speedGrow) == 0)
-                satiety += 1;
+                satiety += 2;
 
             //полупрозрачность травы в зависимости от сытости
             int alpha = (int)(255d * (((double)satiety) / satietyBorn));
