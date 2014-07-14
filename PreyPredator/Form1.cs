@@ -35,7 +35,10 @@ namespace PreyPredator
 
         private void buttonPause_Click(object sender, EventArgs e)
         {
-            timerMain.Enabled = false;
+            if (timerMain.Enabled == true)
+                timerMain.Enabled = false;
+            else
+                timerMain.Enabled = true;
         }
 
         private void timerMain_Tick(object sender, EventArgs e)
