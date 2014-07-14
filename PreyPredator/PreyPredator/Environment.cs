@@ -124,19 +124,19 @@ namespace PreyPreadtor
 
             for (int i = 0; i < grasses; i++)
             {
-                var ag = new Grass(this, rand.Next(10,15));
+                var ag = new Grass(this);
                 agents.Add(ag);
             }
 
             for (int i = 0; i < preys; i++)
             {
-                var ag = new Prey(this, rand.Next(40, 55));
+                var ag = new Prey(this);
                 agents.Add(ag);
             }
 
             for (int i = 0; i < predators; i++)
             {
-                var ag = new Predator(this, rand.Next(40, 55));
+                var ag = new Predator(this);
                 agents.Add(ag);
             }
 

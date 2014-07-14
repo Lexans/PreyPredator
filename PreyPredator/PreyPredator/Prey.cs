@@ -17,19 +17,56 @@ namespace PreyPreadtor
     /// </summary>
     public sealed class Prey : Agent
     {
-        public Prey(Environment environment, int satiety)
-            : base(environment, satiety, Color.White)
+        /// <summary>
+        /// новорожденный
+        /// </summary>
+        const int satietyBorn = 30;
+
+        /// <summary>
+        /// радиус зрения
+        /// </summary>
+        const double radius = 2.4;
+
+        /// <summary>
+        /// время жизни
+        /// </summary>
+        const int maxAge = 200;
+
+        /// <summary>
+        /// возраст размножения
+        /// </summary>
+        const int bornAge = 100;
+
+        /// <summary>
+        /// затраты на рождение
+        /// </summary>
+        const int bornExpense = 40;
+
+
+        /// <summary>
+        /// порог голода для еды
+        /// </summary>
+        const int hunterBound = 95;
+
+        /// <summary>
+        /// порог голода для размножения
+        /// </summary>
+        const int bornBound = 70;
+
+
+        public Prey(Environment environment)
+            : base(environment, satietyBorn, Color.White)
         {
         }
 
         public void Behaviour()
         {
 
-            var nearAg = nearAgents(2.5);
-            if (nearAg.Count > 0) //находим еду
+            var nearAg = nearAgents(radius);
+            if (satiety < hunterBound && nearAg.Count > 0) //находим еду
             {
                 foreach (var ag in nearAg)
-                    if ((ag is Grass) && ag.satiety > 1)
+                    if ((ag is Grass) && ag.satiety > 10)
                     {
                         MoveTo(ag.x, ag.y);
                         Eat(ag);
@@ -38,20 +75,23 @@ namespace PreyPreadtor
             }
             MoveRand();
 
-            //смерть
-            if (satiety < 0)
+
+            int age = environment.timer - birth; //возраст
+
+            //смерть от голода или возраста
+            if (satiety < 0 || age > maxAge)
             {
                 environment.agents.Remove(this);
             }
 
             //размножение
-            if (satiety > 80)
+            if (satiety > bornBound && age > bornAge)
             {
-                var ag = new Prey(environment, rand.Next(40, 55));
+                var ag = new Prey(environment);
                 ag.x = x;
                 ag.y = y;
                 environment.agents.Add(ag);
-                satiety -= 40;
+                satiety -= bornExpense;
             }
         }
 

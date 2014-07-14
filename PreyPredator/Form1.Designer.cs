@@ -95,7 +95,7 @@
             this.numericUpDownGrass.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownGrass.TabIndex = 6;
             this.numericUpDownGrass.Value = new decimal(new int[] {
-            30,
+            150,
             0,
             0,
             0});
@@ -107,7 +107,7 @@
             this.numericUpDownPreys.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownPreys.TabIndex = 5;
             this.numericUpDownPreys.Value = new decimal(new int[] {
-            10,
+            15,
             0,
             0,
             0});

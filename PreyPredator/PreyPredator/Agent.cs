@@ -62,13 +62,13 @@ namespace PreyPreadtor
             if (((x + dx) < environment.width) && ((x + dx) >= 0))
             {
                 x += dx;
-                satiety--;
+                satiety -= 3;
             }
 
             if (((y + dy) < environment.height) && ((y + dy) >= 0))
             {
                 y += dy;
-                satiety--;
+                satiety-=3;
             }
 
 		}

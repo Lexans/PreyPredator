@@ -6,34 +6,40 @@
 //------------------------------------------------------------------------------
 namespace PreyPreadtor
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Drawing;
-	using System.Linq;
-	using System.Text;
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
 
-	/// <summary>
-	/// трава
-	/// </summary>
-	public sealed class Grass : Agent
-	{
+    /// <summary>
+    /// трава
+    /// </summary>
+    public sealed class Grass : Agent
+    {
+        //замедление роста
+        const int speedGrow = 5;
 
-        public Grass(Environment environment, int satiety): base(environment, satiety, Color.Green)
+        //новорожденная трава
+        const int satietyBorn = 15;
+
+        public Grass(Environment environment)
+            : base(environment, satietyBorn, Color.Green)
         {
         }
 
-		public void Behaviour()
-		{
+        public void Behaviour()
+        {
             //рост травы
-            if ((environment.timer % 20) == 0)
+            if ((environment.timer % speedGrow) == 0)
                 satiety += 1;
 
             //полупрозрачность травы в зависимости от сытости
-            int alpha=(int)(255d*(((double)satiety)/15d));
-            if(alpha>255) alpha=255;
+            int alpha = (int)(255d * (((double)satiety) / satietyBorn));
+            if (alpha > 255) alpha = 255;
             color = Color.FromArgb(alpha, Color.Green);
-		}
+        }
 
-	}
+    }
 }
 
